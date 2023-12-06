@@ -9,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @Transactional
@@ -49,5 +50,9 @@ public class UserServiceImpl implements UserService{
 //        @Transactional remplace la ligne suivante car elle fait un save après chaque modif
 //        userRepository.save(usr);
         return usr;
+    }
+    @Override
+    public List<User> findAllUsers() {
+        return userRepository.findAll();
     }
 }
